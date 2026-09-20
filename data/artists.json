@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Miyagi",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 2,
+    "name": "Эндшпиль",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 3,
+    "name": "Andy Panda",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 4,
+    "name": "TumaniYO",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 5,
+    "name": "KADI",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 6,
+    "name": "Castle",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 7,
+    "name": "HLOY",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 8,
+    "name": "Ollane",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 9,
+    "name": "Mav-d",
+    "label_id": 1,
+    "country": "Россия"
+  },
+  {
+    "id": 10,
+    "name": "NF",
+    "label_id": 2,
+    "country": "США"
+  }
+]

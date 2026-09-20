@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Hajime Records",
+    "founded_year": 2017,
+    "country": "Россия"
+  },
+  {
+    "id": 2,
+    "name": "Capitol CMG",
+    "founded_year": 2014,
+    "country": "США"
+  }
+]

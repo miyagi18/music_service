@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "title": "Bismarck",
+    "artist_id": 2,
+    "genre": "Hip-Hop",
+    "release_year": 2018,
+    "duration_sec": 215
+  },
+  {
+    "id": 2,
+    "title": "Колизей",
+    "artist_id": 1,
+    "genre": "Hip-Hop",
+    "release_year": 2017,
+    "duration_sec": 268
+  },
+  {
+    "id": 3,
+    "title": "Самурай",
+    "artist_id": 1,
+    "genre": "Hip-Hop",
+    "release_year": 2017,
+    "duration_sec": 165
+  },
+  {
+    "id": 4,
+    "title": "I Got Love",
+    "artist_id": 1,
+    "genre": "Hip-Hop",
+    "release_year": 2018,
+    "duration_sec": 210
+  },
+  {
+    "id": 5,
+    "title": "Малиновый рассвет",
+    "artist_id": 2,
+    "genre": "Hip-Hop",
+    "release_year": 2017,
+    "duration_sec": 234
+  },
+  {
+    "id": 6,
+    "title": "King Kong",
+    "artist_id": 3,
+    "genre": "Hip-Hop",
+    "release_year": 2019,
+    "duration_sec": 210
+  },
+  {
+    "id": 7,
+    "title": "Endorphin",
+    "artist_id": 3,
+    "genre": "Hip-Hop",
+    "release_year": 2019,
+    "duration_sec": 194
+  },
+  {
+    "id": 8,
+    "title": "Патрон",
+    "artist_id": 1,
+    "genre": "Hip-Hop",
+    "release_year": 2021,
+    "duration_sec": 225
+  },
+  {
+    "id": 9,
+    "title": "Brooklyn",
+    "artist_id": 4,
+    "genre": "Hip-Hop",
+    "release_year": 2018,
+    "duration_sec": 194
+  },
+  {
+    "id": 10,
+    "title": "Colors",
+    "artist_id": 5,
+    "genre": "Hip-Hop",
+    "release_year": 2019,
+    "duration_sec": 162
+  },
+  {
+    "id": 11,
+    "title": "I Do",
+    "artist_id": 6,
+    "genre": "Hip-Hop",
+    "release_year": 2020,
+    "duration_sec": 180
+  },
+  {
+    "id": 12,
+    "title": "Sonder",
+    "artist_id": 7,
+    "genre": "Hip-Hop",
+    "release_year": 2021,
+    "duration_sec": 200
+  },
+  {
+    "id": 13,
+    "title": "Poem",
+    "artist_id": 8,
+    "genre": "Hip-Hop",
+    "release_year": 2020,
+    "duration_sec": 190
+  },
+  {
+    "id": 14,
+    "title": "Somebody",
+    "artist_id": 9,
+    "genre": "Hip-Hop",
+    "release_year": 2020,
+    "duration_sec": 185
+  },
+  {
+    "id": 15,
+    "title": "Let You Down",
+    "artist_id": 10,
+    "genre": "Hip-Hop",
+    "release_year": 2017,
+    "duration_sec": 212
+  },
+  {
+    "id": 16,
+    "title": "The Search",
+    "artist_id": 10,
+    "genre": "Hip-Hop",
+    "release_year": 2019,
+    "duration_sec": 248
+  },
+  {
+    "id": 17,
+    "title": "When I Grow Up",
+    "artist_id": 10,
+    "genre": "Hip-Hop",
+    "release_year": 2019,
+    "duration_sec": 220
+  },
+  {
+    "id": 18,
+    "title": "Hate Myself",
+    "artist_id": 10,
+    "genre": "Hip-Hop",
+    "release_year": 2019,
+    "duration_sec": 235
+  },
+  {
+    "id": 19,
+    "title": "Lie",
+    "artist_id": 10,
+    "genre": "Hip-Hop",
+    "release_year": 2017,
+    "duration_sec": 205
+  },
+  {
+    "id": 20,
+    "title": "Clouds",
+    "artist_id": 10,
+    "genre": "Hip-Hop",
+    "release_year": 2021,
+    "duration_sec": 198
+  }
+]
