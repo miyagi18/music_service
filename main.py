@@ -3,10 +3,15 @@ from songs import find_song_by_title, get_songs_by_artist
 from artists import find_artist_by_name, get_artists_by_label
 from labels import find_label_by_name
 
+
 def print_song_info(song: dict) -> None:
-    lyrics_status = "Текст доступен" if song.get('has_lyrics') else "Текст не доступен"
+    lyrics_status = (
+        "Текст доступен" if song.get('has_lyrics')
+        else "Текст не доступен"
+    )
     print(f"{song['title']} ({song['release_year']}) - {song['genre']}")
     print(f"Текст песни: {lyrics_status}")
+
 
 def main() -> None:
     songs = load_json('data/songs.json')
@@ -44,7 +49,7 @@ def main() -> None:
                     print(f"\nАртист: {artist['name']}")
                     artist_songs = get_songs_by_artist(songs, artist['id'])
                     if artist_songs:
-                        print("   Дискография:")
+                        print("Дискография:")
                         for s in artist_songs:
                             print_song_info(s)
                     else:
@@ -73,6 +78,7 @@ def main() -> None:
             break
         else:
             print("Неверный пункт меню.")
+
 
 if __name__ == "__main__":
     main()
