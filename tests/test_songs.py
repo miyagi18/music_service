@@ -1,4 +1,4 @@
-from songs import find_song_by_title, get_songs_by_artist
+from models.songs import find_song_by_title, get_songs_by_artist
 
 
 mock_songs = [
@@ -25,4 +25,3 @@ def test_get_songs_by_artist():
     result = get_songs_by_artist(mock_songs, 2)
     assert len(result) == 1
     assert result[0]['artist_id'] == 2
-    
