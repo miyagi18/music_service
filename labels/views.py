@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def labels(request):
+    return HttpResponse("Список лейблов")
+
+
+def label_detail(request, label_id):
+    return HttpResponse(f"Лейбл {label_id}")

@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def requests_list(request):
+    return HttpResponse("Список заявок")
+
+
+def request_detail(request, request_id):
+    return HttpResponse(f"Заявка {request_id}")

@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def artists(request):
+    return HttpResponse("Список артистов")
+
+
+def artist_detail(request, artist_id):
+    return HttpResponse(f"Артист {artist_id}")

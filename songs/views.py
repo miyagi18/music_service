@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def songs(request):
+    return HttpResponse("Список песен")
+
+
+def song_detail(request, song_id):
+    return HttpResponse(f"Песня {song_id}")
