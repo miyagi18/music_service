@@ -522,3 +522,25 @@ a {
         display: none;
     }
 }
+
+/* ---------- Бейджи статусов заявок ---------- */
+
+.badge--new {
+    background: rgba(29, 185, 84, 0.15);
+    color: var(--accent);
+}
+
+.badge--in_progress {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+.badge--done {
+    background: rgba(29, 185, 84, 0.15);
+    color: var(--accent-hover);
+}
+
+.badge--cancelled {
+    background: rgba(179, 179, 179, 0.15);
+    color: var(--text-muted);
+}

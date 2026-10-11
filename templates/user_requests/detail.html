@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Заявка #{{ req.id }} — Music Service{% endblock %}
+
+{% block content %}
+<div class="detail-header">
+    <div class="detail-header__cover">✎</div>
+    <div class="detail-header__info">
+        <div class="detail-header__type">Заявка #{{ req.id }}</div>
+        <h1 class="detail-header__title">{{ req.query }}</h1>
+        <div class="detail-header__meta">
+            <span>{{ req.user.name }}</span>
+            <span>•</span>
+            <span class="badge badge--{{ req.status }}">
+                {{ req.status_display }}
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="card" style="margin-bottom: 24px;">
+    <div class="card__title">Детали заявки</div>
+    <p style="margin-top: 12px;">
+        <strong>Жанр:</strong> {{ req.genre|default:"—" }}
+    </p>
+    <p>
+        <strong>Город / страна:</strong> {{ req.city|default:"—" }}
+    </p>
+    <p>
+        <strong>Создана:</strong> {{ req.created_at|default:"—" }}
+    </p>
+    <p>
+        <strong>Найденный коллектив:</strong>
+        {% if req.found_artist %}
+            <a href="{% url 'artist_detail' req.found_artist.id %}"
+               class="link-muted">{{ req.found_artist.name }}</a>
+        {% else %}
+            —
+        {% endif %}
+    </p>
+</div>
+
+<a href="{% url 'requests' %}" class="btn btn--ghost">
+    ← к списку заявок
+</a>
+{% endblock %}
