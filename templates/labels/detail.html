@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ label.name }} — Music Service{% endblock %}
+
+{% block content %}
+<div class="detail-header">
+    <div class="detail-header__cover">{{ label.name|slice:":1" }}</div>
+    <div class="detail-header__info">
+        <div class="detail-header__type">Лейбл</div>
+        <h1 class="detail-header__title">{{ label.name }}</h1>
+        <div class="detail-header__meta">
+            <span>{{ label.country }}</span>
+            <span>•</span>
+            <span>Основан в {{ label.founded_year }}</span>
+            <span>•</span>
+            <span>{{ artists|length }} артистов</span>
+        </div>
+    </div>
+</div>
+
+<h2 class="section__title">Артисты лейбла</h2>
+
+{% if artists %}
+    <div class="track-list">
+        {% for artist in artists %}
+        <a href="{% url 'artist_detail' artist.id %}" class="track">
+            <div class="track__index">{{ forloop.counter }}</div>
+            <div class="track__cover">{{ artist.name|slice:":1" }}</div>
+            <div class="track__main">
+                <div class="track__title">{{ artist.name }}</div>
+                <div class="track__subtitle">{{ artist.country }}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="empty">На этом лейбле пока нет артистов.</p>
+{% endif %}
+
+<a href="{% url 'labels' %}" class="btn btn--ghost"
+   style="margin-top: 24px;">
+    ← к списку лейблов
+</a>
+{% endblock %}
