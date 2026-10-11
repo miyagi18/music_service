@@ -2,61 +2,61 @@
   {
     "id": 1,
     "name": "Miyagi",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 2,
     "name": "Эндшпиль",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 3,
     "name": "Andy Panda",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 4,
     "name": "TumaniYO",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 5,
     "name": "KADI",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 6,
     "name": "Castle",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 7,
     "name": "HLOY",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 8,
     "name": "Ollane",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 9,
     "name": "Mav-d",
-    "label_id": 1,
-    "country": "Россия"
+    "country": "Россия",
+    "label_id": 1
   },
   {
     "id": 10,
     "name": "NF",
-    "label_id": 2,
-    "country": "США"
+    "country": "США",
+    "label_id": 2
   }
 ]

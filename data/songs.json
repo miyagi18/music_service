@@ -5,7 +5,8 @@
     "artist_id": 2,
     "genre": "Hip-Hop",
     "release_year": 2018,
-    "duration_sec": 215
+    "duration_sec": 215,
+    "has_lyrics": false
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "artist_id": 1,
     "genre": "Hip-Hop",
     "release_year": 2017,
-    "duration_sec": 268
+    "duration_sec": 268,
+    "has_lyrics": false
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "artist_id": 1,
     "genre": "Hip-Hop",
     "release_year": 2017,
-    "duration_sec": 165
+    "duration_sec": 165,
+    "has_lyrics": false
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "artist_id": 1,
     "genre": "Hip-Hop",
     "release_year": 2018,
-    "duration_sec": 210
+    "duration_sec": 210,
+    "has_lyrics": false
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "artist_id": 2,
     "genre": "Hip-Hop",
     "release_year": 2017,
-    "duration_sec": 234
+    "duration_sec": 234,
+    "has_lyrics": false
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "artist_id": 3,
     "genre": "Hip-Hop",
     "release_year": 2019,
-    "duration_sec": 210
+    "duration_sec": 210,
+    "has_lyrics": false
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "artist_id": 3,
     "genre": "Hip-Hop",
     "release_year": 2019,
-    "duration_sec": 194
+    "duration_sec": 194,
+    "has_lyrics": false
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "artist_id": 1,
     "genre": "Hip-Hop",
     "release_year": 2021,
-    "duration_sec": 225
+    "duration_sec": 225,
+    "has_lyrics": false
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "artist_id": 4,
     "genre": "Hip-Hop",
     "release_year": 2018,
-    "duration_sec": 194
+    "duration_sec": 194,
+    "has_lyrics": false
   },
   {
     "id": 10,
@@ -77,7 +86,8 @@
     "artist_id": 5,
     "genre": "Hip-Hop",
     "release_year": 2019,
-    "duration_sec": 162
+    "duration_sec": 162,
+    "has_lyrics": false
   },
   {
     "id": 11,
@@ -85,7 +95,8 @@
     "artist_id": 6,
     "genre": "Hip-Hop",
     "release_year": 2020,
-    "duration_sec": 180
+    "duration_sec": 180,
+    "has_lyrics": false
   },
   {
     "id": 12,
@@ -93,7 +104,8 @@
     "artist_id": 7,
     "genre": "Hip-Hop",
     "release_year": 2021,
-    "duration_sec": 200
+    "duration_sec": 200,
+    "has_lyrics": false
   },
   {
     "id": 13,
@@ -101,7 +113,8 @@
     "artist_id": 8,
     "genre": "Hip-Hop",
     "release_year": 2020,
-    "duration_sec": 190
+    "duration_sec": 190,
+    "has_lyrics": false
   },
   {
     "id": 14,
@@ -109,7 +122,8 @@
     "artist_id": 9,
     "genre": "Hip-Hop",
     "release_year": 2020,
-    "duration_sec": 185
+    "duration_sec": 185,
+    "has_lyrics": false
   },
   {
     "id": 15,
@@ -117,7 +131,8 @@
     "artist_id": 10,
     "genre": "Hip-Hop",
     "release_year": 2017,
-    "duration_sec": 212
+    "duration_sec": 212,
+    "has_lyrics": false
   },
   {
     "id": 16,
@@ -125,7 +140,8 @@
     "artist_id": 10,
     "genre": "Hip-Hop",
     "release_year": 2019,
-    "duration_sec": 248
+    "duration_sec": 248,
+    "has_lyrics": false
   },
   {
     "id": 17,
@@ -133,7 +149,8 @@
     "artist_id": 10,
     "genre": "Hip-Hop",
     "release_year": 2019,
-    "duration_sec": 220
+    "duration_sec": 220,
+    "has_lyrics": false
   },
   {
     "id": 18,
@@ -141,7 +158,8 @@
     "artist_id": 10,
     "genre": "Hip-Hop",
     "release_year": 2019,
-    "duration_sec": 235
+    "duration_sec": 235,
+    "has_lyrics": false
   },
   {
     "id": 19,
@@ -149,7 +167,8 @@
     "artist_id": 10,
     "genre": "Hip-Hop",
     "release_year": 2017,
-    "duration_sec": 205
+    "duration_sec": 205,
+    "has_lyrics": false
   },
   {
     "id": 20,
@@ -157,6 +176,7 @@
     "artist_id": 10,
     "genre": "Hip-Hop",
     "release_year": 2021,
-    "duration_sec": 198
+    "duration_sec": 198,
+    "has_lyrics": false
   }
 ]

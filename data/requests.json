@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "user_id": 1,
+    "query": "Miyagi",
+    "genre": "Hip-Hop",
+    "city": "Россия",
+    "status": "done",
+    "created_at": "2026-09-15",
+    "artist_id": 1
+  },
+  {
+    "id": 2,
+    "user_id": 2,
+    "query": "NF",
+    "genre": "Hip-Hop",
+    "city": "США",
+    "status": "done",
+    "created_at": "2026-09-18",
+    "artist_id": 10
+  },
+  {
+    "id": 3,
+    "user_id": 3,
+    "query": "Эндшпиль",
+    "genre": "",
+    "city": "",
+    "status": "in_progress",
+    "created_at": "2026-10-01",
+    "artist_id": null
+  },
+  {
+    "id": 4,
+    "user_id": 4,
+    "query": "Andy Panda",
+    "genre": "Hip-Hop",
+    "city": "Россия",
+    "status": "new",
+    "created_at": "2026-10-05",
+    "artist_id": null
+  },
+  {
+    "id": 5,
+    "user_id": 1,
+    "query": "TumaniYO",
+    "genre": "",
+    "city": "",
+    "status": "new",
+    "created_at": "2026-10-08",
+    "artist_id": null
+  },
+  {
+    "id": 6,
+    "user_id": 5,
+    "query": "KADI",
+    "genre": "Hip-Hop",
+    "city": "Россия",
+    "status": "cancelled",
+    "created_at": "2026-10-09",
+    "artist_id": null
+  }
+]
