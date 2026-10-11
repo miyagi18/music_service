@@ -1,5 +1,6 @@
-from django.http import HttpResponse
+"""Главная страница проекта."""
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Главная Music Service")
+    return render(request, "homepage/index.html")

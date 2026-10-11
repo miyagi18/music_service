@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Music Service{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="sidebar__logo">
+            <span class="logo-dot"></span>
+            <span>Music Service</span>
+        </div>
+
+        <nav class="sidebar__nav">
+            <a href="{% url 'index' %}"
+               class="nav-item {% if request.resolver_match.url_name == 'index' %}nav-item--active{% endif %}">
+                <span class="nav-item__icon">⌂</span> Главная
+            </a>
+            <a href="{% url 'labels' %}"
+               class="nav-item {% if 'label' in request.resolver_match.url_name %}nav-item--active{% endif %}">
+                <span class="nav-item__icon">◈</span> Лейблы
+            </a>
+            <a href="{% url 'artists' %}"
+               class="nav-item {% if 'artist' in request.resolver_match.url_name %}nav-item--active{% endif %}">
+                <span class="nav-item__icon">◉</span> Артисты
+            </a>
+            <a href="{% url 'songs' %}"
+               class="nav-item {% if 'song' in request.resolver_match.url_name %}nav-item--active{% endif %}">
+                <span class="nav-item__icon">♪</span> Песни
+            </a>
+            <a href="{% url 'requests' %}"
+               class="nav-item {% if 'request' in request.resolver_match.url_name %}nav-item--active{% endif %}">
+                <span class="nav-item__icon">✎</span> Заявки
+            </a>
+        </nav>
+
+        <div class="sidebar__footer">
+            <p class="sidebar__hint">
+                Сервис поиска<br>музыкальных коллективов
+            </p>
+        </div>
+    </aside>
+
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+
+</div>
+</body>
+</html>
