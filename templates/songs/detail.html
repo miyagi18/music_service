@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ song.title }} — Music Service{% endblock %}
+
+{% block content %}
+<div class="detail-header">
+    <div class="detail-header__cover">♪</div>
+    <div class="detail-header__info">
+        <div class="detail-header__type">Песня</div>
+        <h1 class="detail-header__title">{{ song.title }}</h1>
+        <div class="detail-header__meta">
+            <a href="{% url 'artist_detail' song.artist.id %}"
+               class="link-muted">{{ song.artist.name }}</a>
+            <span>•</span>
+            <span>{{ song.genre }}</span>
+            <span>•</span>
+            <span>{{ song.release_year }}</span>
+            <span>•</span>
+            <span>{{ song.duration_sec }} сек</span>
+        </div>
+        {% if song.has_lyrics %}
+            <div style="margin-top: 8px;">
+                <span class="badge">текст доступен</span>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<a href="{% url 'songs' %}" class="btn btn--ghost">
+    ← к списку песен
+</a>
+{% endblock %}

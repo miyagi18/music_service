@@ -94,3 +94,11 @@ def get_songs_by_label(
         if a.label is not None and a.label.id == label_id
     }
     return [s for s in songs if s.artist.id in label_artist_ids]
+
+
+def find_song_by_id(songs: List[Song], song_id: int) -> Song | None:
+    """Найти песню по ID."""
+    for song in songs:
+        if song.id == song_id:
+            return song
+    return None
