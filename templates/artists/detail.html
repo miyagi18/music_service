@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}{{ artist.name }} — Music Service{% endblock %}
+
+{% block content %}
+<div class="detail-header">
+    <div class="detail-header__cover">{{ artist.name|slice:":1" }}</div>
+    <div class="detail-header__info">
+        <div class="detail-header__type">Артист</div>
+        <h1 class="detail-header__title">{{ artist.name }}</h1>
+        <div class="detail-header__meta">
+            <span>{{ artist.country }}</span>
+            {% if artist.label %}
+                <span>•</span>
+                <a href="{% url 'label_detail' artist.label.id %}"
+                   class="link-muted">{{ artist.label.name }}</a>
+            {% endif %}
+            <span>•</span>
+            <span>{{ songs|length }} песен</span>
+        </div>
+    </div>
+</div>
+
+<h2 class="section__title">Дискография</h2>
+
+{% if songs %}
+    <div class="track-list">
+        {% for song in songs %}
+        <a href="{% url 'song_detail' song.id %}" class="track">
+            <div class="track__index">{{ forloop.counter }}</div>
+            <div class="track__cover track__cover--song">♪</div>
+            <div class="track__main">
+                <div class="track__title">{{ song.title }}</div>
+                <div class="track__subtitle">{{ song.genre }}</div>
+            </div>
+            {% if song.has_lyrics %}
+                <div class="track__meta">
+                    <span class="badge">текст</span>
+                </div>
+            {% else %}
+                <div class="track__meta"></div>
+            {% endif %}
+            <div class="track__year">{{ song.release_year }}</div>
+        </a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="empty">Песен в базе нет.</p>
+{% endif %}
+
+<a href="{% url 'artists' %}" class="btn btn--ghost"
+   style="margin-top: 24px;">
+    ← к списку артистов
+</a>
+{% endblock %}
