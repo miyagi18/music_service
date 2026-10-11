@@ -1,0 +1,11 @@
+[flake8]
+max-line-length = 79
+extend-exclude =
+    venv,
+    migrations,
+    __pycache__,
+    .mypy_cache,
+    .pytest_cache,
+    .git
+per-file-ignores =
+    music_service/settings.py:E501
