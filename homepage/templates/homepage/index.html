@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block title %}Music Service — Главная{% endblock %}
 
 {% block content %}
@@ -9,10 +8,11 @@
         Сервис поиска музыкальных коллективов, их песен и лейблов.
     </p>
     <div class="hero__actions">
-        <a href="{% url 'artists' %}" class="btn btn--primary">
+        <!-- Обновлённые ссылки с пространствами имён -->
+        <a href="{% url 'artists:list' %}" class="btn btn--primary">
             К артистам
         </a>
-        <a href="{% url 'songs' %}" class="btn btn--ghost">
+        <a href="{% url 'songs:list' %}" class="btn btn--ghost">
             К песням
         </a>
     </div>
@@ -21,7 +21,7 @@
 <section class="section">
     <h2 class="section__title">Разделы</h2>
     <div class="card-grid">
-        <a href="{% url 'labels' %}" class="card-link">
+        <a href="{% url 'labels:list' %}" class="card-link">
             <div class="card">
                 <div class="card__title">Лейблы</div>
                 <div class="card__text">
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </a>
-        <a href="{% url 'artists' %}" class="card-link">
+        <a href="{% url 'artists:list' %}" class="card-link">
             <div class="card">
                 <div class="card__title">Артисты</div>
                 <div class="card__text">
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </a>
-        <a href="{% url 'songs' %}" class="card-link">
+        <a href="{% url 'songs:list' %}" class="card-link">
             <div class="card">
                 <div class="card__title">Песни</div>
                 <div class="card__text">
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </a>
-        <a href="{% url 'requests' %}" class="card-link">
+        <a href="{% url 'user_requests:list' %}" class="card-link">
             <div class="card">
                 <div class="card__title">Заявки</div>
                 <div class="card__text">

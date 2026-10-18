@@ -1,0 +1,13 @@
+<a href="{% url 'user_requests:detail' req.id %}" class="track">
+    <div class="track__index">#{{ req.id }}</div>
+    <div class="track__cover">✎</div>
+    <div class="track__main">
+        <div class="track__title">{{ req.query }}</div>
+        <div class="track__subtitle">{{ req.user.name }}</div>
+    </div>
+    <div class="track__meta">
+        <span class="badge badge--{{ req.status }}">
+            {{ req.status_display|default:req.status }}
+        </span>
+    </div>
+</a>

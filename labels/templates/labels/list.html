@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Лейблы — Music Service{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-header__title">Лейблы</h1>
+    <!-- Фильтр length -->
+    <p class="page-header__meta">Всего: {{ labels|length }}</p>
+</div>
+
+{% if labels %}
+    <div class="track-list">
+        {% for label in labels %}
+            {% include "labels/includes/label_card.html" %}
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="empty">Лейблов пока нет.</p>
+{% endif %}
+{% endblock %}

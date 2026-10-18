@@ -1,17 +1,16 @@
 {% extends "base.html" %}
-
-{% block title %}{{ label.name }} — Music Service{% endblock %}
+{% block title %}{{ label.name|default:"Лейбл" }} — Music Service{% endblock %}
 
 {% block content %}
 <div class="detail-header">
-    <div class="detail-header__cover">{{ label.name|slice:":1" }}</div>
+    <div class="detail-header__cover">{{ label.name|slice:":1"|default:"?" }}</div>
     <div class="detail-header__info">
         <div class="detail-header__type">Лейбл</div>
-        <h1 class="detail-header__title">{{ label.name }}</h1>
+        <h1 class="detail-header__title">{{ label.name|default:"Без названия" }}</h1>
         <div class="detail-header__meta">
-            <span>{{ label.country }}</span>
+            <span>{{ label.country|default:"Не указана" }}</span>
             <span>•</span>
-            <span>Основан в {{ label.founded_year }}</span>
+            <span>Основан в {{ label.founded_year|default:"—" }}</span>
             <span>•</span>
             <span>{{ artists|length }} артистов</span>
         </div>
@@ -23,7 +22,7 @@
 {% if artists %}
     <div class="track-list">
         {% for artist in artists %}
-        <a href="{% url 'artist_detail' artist.id %}" class="track">
+        <a href="{% url 'artists:detail' artist.id %}" class="track">
             <div class="track__index">{{ forloop.counter }}</div>
             <div class="track__cover">{{ artist.name|slice:":1" }}</div>
             <div class="track__main">
@@ -37,8 +36,7 @@
     <p class="empty">На этом лейбле пока нет артистов.</p>
 {% endif %}
 
-<a href="{% url 'labels' %}" class="btn btn--ghost"
-   style="margin-top: 24px;">
+<a href="{% url 'labels:list' %}" class="btn btn--ghost" style="margin-top: 24px;">
     ← к списку лейблов
 </a>
 {% endblock %}

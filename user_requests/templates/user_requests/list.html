@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Заявки — Music Service{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-header__title">Заявки на поиск коллектива</h1>
+    <p class="page-header__meta">Всего: {{ requests|length }}</p>
+</div>
+
+{% if requests %}
+    <div class="track-list">
+        {% for req in requests %}
+            {% include "user_requests/includes/request_card.html" %}
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="empty">Заявок пока нет.</p>
+{% endif %}
+{% endblock %}

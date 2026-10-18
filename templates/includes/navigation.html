@@ -1,0 +1,34 @@
+{% load static %}
+<aside class="sidebar">
+    <div class="sidebar__logo">
+        <img src="{% static 'homepage/img/logo.png' %}" alt="Music Service" class="logo-img">
+        <span>Music Service</span>
+    </div>
+
+    <nav class="sidebar__nav">
+        <a href="{% url 'homepage:index' %}"
+           class="nav-item {% if request.resolver_match.namespace == 'homepage' %}nav-item--active{% endif %}">
+            <span class="nav-item__icon">⌂</span> Главная
+        </a>
+        <a href="{% url 'labels:list' %}"
+           class="nav-item {% if request.resolver_match.namespace == 'labels' %}nav-item--active{% endif %}">
+            <span class="nav-item__icon">◈</span> Лейблы
+        </a>
+        <a href="{% url 'artists:list' %}"
+           class="nav-item {% if request.resolver_match.namespace == 'artists' %}nav-item--active{% endif %}">
+            <span class="nav-item__icon">◉</span> Артисты
+        </a>
+        <a href="{% url 'songs:list' %}"
+           class="nav-item {% if request.resolver_match.namespace == 'songs' %}nav-item--active{% endif %}">
+            <span class="nav-item__icon">♪</span> Песни
+        </a>
+        <a href="{% url 'user_requests:list' %}"
+           class="nav-item {% if request.resolver_match.namespace == 'user_requests' %}nav-item--active{% endif %}">
+            <span class="nav-item__icon">✎</span> Заявки
+        </a>
+    </nav>
+
+    <div class="sidebar__footer">
+        <p class="sidebar__hint">Сервис поиска<br>музыкальных коллективов</p>
+    </div>
+</aside>

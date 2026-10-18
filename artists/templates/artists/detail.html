@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ artist.name }} — Music Service{% endblock %}
+
+{% block content %}
+<div class="detail-header">
+    <div class="detail-header__cover">{{ artist.name|slice:":1" }}</div>
+    <div class="detail-header__info">
+        <div class="detail-header__type">Артист</div>
+        <h1 class="detail-header__title">{{ artist.name }}</h1>
+        <div class="detail-header__meta">
+            <span>{{ artist.country|default:"Не указана" }}</span>
+            {% if artist.label %}
+                <span>•</span>
+                <a href="{% url 'labels:detail' artist.label.id %}" class="link-muted">
+                    {{ artist.label.name }}
+                </a>
+            {% endif %}
+            <span>•</span>
+            <span>{{ songs|length }} песен</span>
+        </div>
+    </div>
+</div>
+
+<h2 class="section__title">Дискография</h2>
+
+{% if songs %}
+    <div class="track-list">
+        {% for song in songs %}
+            {% include "songs/includes/song_card.html" %}
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="empty">Песен в базе нет.</p>
+{% endif %}
+
+<a href="{% url 'artists:list' %}" class="btn btn--ghost" style="margin-top: 24px;">
+    ← к списку артистов
+</a>
+{% endblock %}

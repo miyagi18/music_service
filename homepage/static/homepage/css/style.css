@@ -544,3 +544,15 @@ a {
     background: rgba(179, 179, 179, 0.15);
     color: var(--text-muted);
 }
+
+.logo-img {
+    width: 32px;
+    height: 32px;
+}
+.app-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-subtle);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+}

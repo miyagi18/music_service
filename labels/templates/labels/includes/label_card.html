@@ -1,0 +1,9 @@
+<a href="{% url 'labels:detail' label.id %}" class="track">
+    <div class="track__index">{{ forloop.counter }}</div>
+    <div class="track__cover">{{ label.name|slice:":1"|default:"?" }}</div>
+    <div class="track__main">
+        <div class="track__title">{{ label.name|default:"Без названия" }}</div>
+        <div class="track__subtitle">{{ label.country|default:"Страна не указана" }}</div>
+    </div>
+    <div class="track__meta">{{ label.founded_year|default:"—" }}</div>
+</a>

@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block title %}{{ song.title }} — Music Service{% endblock %}
 
 {% block content %}
@@ -9,14 +8,15 @@
         <div class="detail-header__type">Песня</div>
         <h1 class="detail-header__title">{{ song.title }}</h1>
         <div class="detail-header__meta">
-            <a href="{% url 'artist_detail' song.artist.id %}"
-               class="link-muted">{{ song.artist.name }}</a>
+            <a href="{% url 'artists:detail' song.artist.id %}" class="link-muted">
+                {{ song.artist.name }}
+            </a>
             <span>•</span>
-            <span>{{ song.genre }}</span>
+            <span>{{ song.genre|default:"Жанр не указан" }}</span>
             <span>•</span>
-            <span>{{ song.release_year }}</span>
+            <span>{{ song.release_year|default:"—" }}</span>
             <span>•</span>
-            <span>{{ song.duration_sec }} сек</span>
+            <span>{{ song.duration_sec|default:"—" }} сек</span>
         </div>
         {% if song.has_lyrics %}
             <div style="margin-top: 8px;">
@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<a href="{% url 'songs' %}" class="btn btn--ghost">
+<a href="{% url 'songs:list' %}" class="btn btn--ghost">
     ← к списку песен
 </a>
 {% endblock %}

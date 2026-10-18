@@ -1,0 +1,15 @@
+<a href="{% url 'artists:detail' artist.id %}" class="track">
+    <div class="track__index">{{ forloop.counter }}</div>
+    <div class="track__cover">{{ artist.name|slice:":1" }}</div>
+    <div class="track__main">
+        <div class="track__title">{{ artist.name }}</div>
+        <div class="track__subtitle">
+            {% if artist.label %}
+                {{ artist.label.name }}
+            {% else %}
+                без лейбла
+            {% endif %}
+        </div>
+    </div>
+    <div class="track__meta">{{ artist.country|default:"Не указана" }}</div>
+</a>
