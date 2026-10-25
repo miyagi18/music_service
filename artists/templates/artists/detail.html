@@ -9,10 +9,10 @@
         <h1 class="detail-header__title">{{ artist.name }}</h1>
         <div class="detail-header__meta">
             <span>{{ artist.country|default:"Не указана" }}</span>
-            {% if artist.label %}
+            {% if artist.label_id %}
                 <span>•</span>
-                <a href="{% url 'labels:detail' artist.label.id %}" class="link-muted">
-                    {{ artist.label.name }}
+                <a href="{% url 'labels:detail' artist.label_id %}" class="link-muted">
+                    {{ artist.label_name }}
                 </a>
             {% endif %}
             <span>•</span>
@@ -26,7 +26,18 @@
 {% if songs %}
     <div class="track-list">
         {% for song in songs %}
-            {% include "songs/includes/song_card.html" %}
+        <a href="{% url 'songs:detail' song.id %}" class="track">
+            <div class="track__index">{{ forloop.counter }}</div>
+            <div class="track__cover track__cover--song">♪</div>
+            <div class="track__main">
+                <div class="track__title">{{ song.title }}</div>
+                <div class="track__subtitle">{{ song.genre }}</div>
+            </div>
+            <div class="track__meta">
+                {% if song.has_lyrics %}<span class="badge">текст</span>{% endif %}
+            </div>
+            <div class="track__year">{{ song.release_year }}</div>
+        </a>
         {% endfor %}
     </div>
 {% else %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Статистика песен — Music Service{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1 class="page-header__title">Статистика песен по артистам</h1>
+</div>
+
+<div class="track-list">
+    {% for item in stats %}
+    <div class="track">
+        <div class="track__main">
+            <div class="track__title">{{ item.artist_name }}</div>
+        </div>
+        <div class="track__meta">Песен: {{ item.songs_count }}</div>
+    </div>
+    {% empty %}
+    <p class="empty">Данных нет.</p>
+    {% endfor %}
+</div>
+
+<a href="{% url 'songs:list' %}" class="btn btn--ghost" style="margin-top: 24px;">
+    ← к списку песен
+</a>
+{% endblock %}

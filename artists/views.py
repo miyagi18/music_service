@@ -1,37 +1,48 @@
 """Страницы артистов: список и карточка с дискографией."""
 from django.http import Http404
 from django.shortcuts import render
-
-from models.artists import get_artist_by_id
-from models.songs import get_songs_by_artist
-from storage import load_artists, load_labels, load_songs
-
-DATA_LABELS = "data/labels.json"
-DATA_ARTISTS = "data/artists.json"
-DATA_SONGS = "data/songs.json"
+from db.database import get_connection
 
 
 def artists(request):
     """Список всех артистов."""
-    labels_list = load_labels(DATA_LABELS)
-    artists_list = load_artists(DATA_ARTISTS, labels_list)
-    return render(request, "artists/list.html", {
-        "artists": artists_list,
-    })
+    conn = get_connection()
+    artists_data = conn.execute("""
+        SELECT artists.id, artists.name, artists.country,
+               labels.name AS label_name
+        FROM artists
+        LEFT JOIN labels ON artists.label_id = labels.id
+        ORDER BY artists.name
+    """).fetchall()
+    conn.close()
+    return render(request, "artists/list.html", {"artists": artists_data})
 
 
 def artist_detail(request, artist_id: int):
     """Карточка артиста с его дискографией."""
-    labels_list = load_labels(DATA_LABELS)
-    artists_list = load_artists(DATA_ARTISTS, labels_list)
-    artist = get_artist_by_id(artists_list, artist_id)
+    conn = get_connection()
+    artist = conn.execute("""
+        SELECT artists.id, artists.name, artists.country,
+               labels.id AS label_id, labels.name AS label_name
+        FROM artists
+        LEFT JOIN labels ON artists.label_id = labels.id
+        WHERE artists.id = ?
+    """, [artist_id]).fetchone()
+
     if artist is None:
+        conn.close()
         raise Http404("Артист не найден")
 
-    songs_list = load_songs(DATA_SONGS, artists_list)
-    songs = get_songs_by_artist(songs_list, artist)
+    songs = conn.execute("""
+        SELECT id, title, genre, release_year, duration_sec, has_lyrics
+        FROM songs
+        WHERE artist_id = ?
+        ORDER BY release_year DESC
+    """, [artist_id]).fetchall()
 
-    return render(request, "artists/detail.html", {
-        "artist": artist,
-        "songs": songs,
-    })
+    conn.close()
+    return render(
+        request,
+        "artists/detail.html",
+        {"artist": artist, "songs": songs}
+    )

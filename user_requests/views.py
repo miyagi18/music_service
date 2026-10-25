@@ -1,42 +1,61 @@
 """Страницы заявок на поиск музыкального коллектива."""
 from django.http import Http404
 from django.shortcuts import render
-
-from models.requests import STATUS_LABELS, find_request_by_id
-from storage import load_artists, load_labels, load_requests, load_users
-
-DATA_LABELS = "data/labels.json"
-DATA_ARTISTS = "data/artists.json"
-DATA_USERS = "data/users.json"
-DATA_REQUESTS = "data/requests.json"
+from db.database import get_connection
+from models.requests import STATUS_LABELS
 
 
-def _load_all_requests():
-    """Загрузить заявки со связанными пользователями и артистами."""
-    labels_list = load_labels(DATA_LABELS)
-    artists_list = load_artists(DATA_ARTISTS, labels_list)
-    users_list = load_users(DATA_USERS)
-    requests_list = load_requests(
-        DATA_REQUESTS, users_list, artists_list
-    )
-    # Добавляем каждому объекту читаемую подпись статуса
-    for req in requests_list:
-        req.status_display = STATUS_LABELS.get(req.status, req.status)
-    return requests_list
+def _format_requests(rows):
+    """Добавляем читаемый статус к результатам SQL."""
+    result = []
+    for row in rows:
+        req_dict = dict(row)
+        status = req_dict["status"]
+        req_dict["status_display"] = STATUS_LABELS.get(status, status)
+        result.append(req_dict)
+    return result
 
 
 def requests_list(request):
     """Список всех заявок."""
-    requests_list_ = _load_all_requests()
-    return render(request, "user_requests/list.html", {
-        "requests": requests_list_,
-    })
+    conn = get_connection()
+    rows = conn.execute("""
+        SELECT requests.id, requests.query, requests.status,
+               users.name AS user_name
+        FROM requests
+        JOIN users ON requests.user_id = users.id
+        ORDER BY requests.created_at DESC
+    """).fetchall()
+    conn.close()
+    return render(
+        request,
+        "user_requests/list.html",
+        {"requests": _format_requests(rows)}
+    )
 
 
 def request_detail(request, request_id: int):
     """Карточка отдельной заявки."""
-    requests_list_ = _load_all_requests()
-    req = find_request_by_id(requests_list_, request_id)
-    if req is None:
+    conn = get_connection()
+    row = conn.execute("""
+        SELECT requests.id, requests.query, requests.genre,
+               requests.city, requests.status, requests.created_at,
+               users.name AS user_name,
+               artists.id AS found_artist_id,
+               artists.name AS found_artist_name
+        FROM requests
+        JOIN users ON requests.user_id = users.id
+        LEFT JOIN artists ON requests.artist_id = artists.id
+        WHERE requests.id = ?
+    """, [request_id]).fetchone()
+    conn.close()
+
+    if row is None:
         raise Http404("Заявка не найдена")
-    return render(request, "user_requests/detail.html", {"req": req})
+
+    req_formatted = _format_requests([row])[0]
+    return render(
+        request,
+        "user_requests/detail.html",
+        {"req": req_formatted}
+    )

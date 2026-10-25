@@ -1,34 +1,45 @@
 """Страницы лейблов: список и карточка."""
 from django.http import Http404
 from django.shortcuts import render
-
-from models.artists import get_artists_by_label
-from models.labels import find_label_by_id
-from storage import load_artists, load_labels
-
-DATA_LABELS = "data/labels.json"
-DATA_ARTISTS = "data/artists.json"
+from db.database import get_connection
 
 
 def labels(request):
-    """Список всех лейблов из JSON."""
-    labels_list = load_labels(DATA_LABELS)
-    return render(request, "labels/list.html", {
-        "labels": labels_list,
-    })
+    """Список всех лейблов."""
+    conn = get_connection()
+    labels_data = conn.execute("""
+        SELECT id, name, founded_year, country
+        FROM labels
+        ORDER BY name
+    """).fetchall()
+    conn.close()
+    return render(request, "labels/list.html", {"labels": labels_data})
 
 
 def label_detail(request, label_id: int):
     """Карточка лейбла и артисты этого лейбла."""
-    labels_list = load_labels(DATA_LABELS)
-    label = find_label_by_id(labels_list, label_id)
+    conn = get_connection()
+
+    label = conn.execute("""
+        SELECT id, name, founded_year, country
+        FROM labels
+        WHERE id = ?
+    """, [label_id]).fetchone()
+
     if label is None:
+        conn.close()
         raise Http404("Лейбл не найден")
 
-    artists_list = load_artists(DATA_ARTISTS, labels_list)
-    label_artists = get_artists_by_label(artists_list, label)
+    artists = conn.execute("""
+        SELECT id, name, country
+        FROM artists
+        WHERE label_id = ?
+        ORDER BY name
+    """, [label_id]).fetchall()
 
-    return render(request, "labels/detail.html", {
-        "label": label,
-        "artists": label_artists,
-    })
+    conn.close()
+    return render(
+        request,
+        "labels/detail.html",
+        {"label": label, "artists": artists}
+    )

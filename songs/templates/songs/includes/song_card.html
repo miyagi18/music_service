@@ -3,7 +3,7 @@
     <div class="track__cover track__cover--song">♪</div>
     <div class="track__main">
         <div class="track__title">{{ song.title }}</div>
-        <div class="track__subtitle">{{ song.artist.name }}</div>
+        <div class="track__subtitle">{{ song.artist_name }}</div>
     </div>
     <div class="track__meta">{{ song.genre|default:"Жанр не указан" }}</div>
     <div class="track__year">{{ song.release_year|default:"—" }}</div>

@@ -4,11 +4,7 @@
     <div class="track__main">
         <div class="track__title">{{ artist.name }}</div>
         <div class="track__subtitle">
-            {% if artist.label %}
-                {{ artist.label.name }}
-            {% else %}
-                без лейбла
-            {% endif %}
+            {% if artist.label_name %}{{ artist.label_name }}{% else %}без лейбла{% endif %}
         </div>
     </div>
     <div class="track__meta">{{ artist.country|default:"Не указана" }}</div>

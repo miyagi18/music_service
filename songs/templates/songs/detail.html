@@ -8,8 +8,8 @@
         <div class="detail-header__type">Песня</div>
         <h1 class="detail-header__title">{{ song.title }}</h1>
         <div class="detail-header__meta">
-            <a href="{% url 'artists:detail' song.artist.id %}" class="link-muted">
-                {{ song.artist.name }}
+            <a href="{% url 'artists:detail' song.artist_id %}" class="link-muted">
+                {{ song.artist_name }}
             </a>
             <span>•</span>
             <span>{{ song.genre|default:"Жанр не указан" }}</span>
