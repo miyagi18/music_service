@@ -22,9 +22,9 @@
     <p><strong>Создана:</strong> {{ req.created_at|default:"—" }}</p>
     <p>
         <strong>Найденный коллектив:</strong>
-        {% if req.found_artist_id %}
-        <a href="{% url 'artists:detail' req.found_artist_id %}" class="link-muted">
-            {{ req.found_artist_name }}
+        {% if req.found_artist %}
+        <a href="{% url 'artists:detail' req.found_artist.id %}" class="link-muted">
+            {{ req.found_artist.name }}
         </a>
         {% else %}
         —

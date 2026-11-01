@@ -10,7 +10,8 @@
     {% for item in stats %}
     <div class="track">
         <div class="track__main">
-            <div class="track__title">{{ item.artist_name }}</div>
+            <!-- Обращаемся к полю name модели Artist -->
+            <div class="track__title">{{ item.name }}</div>
         </div>
         <div class="track__meta">Песен: {{ item.songs_count }}</div>
     </div>

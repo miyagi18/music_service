@@ -4,21 +4,39 @@
 {% block content %}
 <div class="page-header">
     <h1 class="page-header__title">Песни</h1>
-    <p class="page-header__meta">Всего: {{ songs|length }}</p>
-    
-    <!-- ВОТ ЗДЕСЬ ССЫЛКА НА СТАТИСТИКУ -->
+    <p class="page-header__meta">Всего: {{ page_obj.paginator.count }}</p>
     <div style="margin-top: 12px;">
-        <a href="{% url 'songs:statistics' %}" class="btn btn--primary">
-            Посмотреть статистику по артистам
-        </a>
+        <a href="{% url 'songs:statistics' %}" class="btn btn--primary">Статистика</a>
     </div>
 </div>
+
+<!-- Форма поиска и сортировки -->
+<form method="get" style="margin-bottom: 20px; display: flex; gap: 10px;">
+    <input type="text" name="q" value="{{ query }}" placeholder="Поиск по названию..." class="form-control">
+    <select name="sort" class="form-control">
+        <option value="title" {% if sort == 'title' %}selected{% endif %}>По названию</option>
+        <option value="year" {% if sort == 'year' %}selected{% endif %}>По году (новые)</option>
+        <option value="artist" {% if sort == 'artist' %}selected{% endif %}>По артисту</option>
+    </select>
+    <button type="submit" class="btn btn--primary">Найти</button>
+</form>
 
 {% if songs %}
     <div class="track-list">
         {% for song in songs %}
             {% include "songs/includes/song_card.html" %}
         {% endfor %}
+    </div>
+    
+    <!-- Пагинация -->
+    <div style="margin-top: 20px; display: flex; gap: 10px; align-items: center;">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}&q={{ query }}&sort={{ sort }}" class="btn btn--ghost">Назад</a>
+        {% endif %}
+        <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&q={{ query }}&sort={{ sort }}" class="btn btn--ghost">Вперед</a>
+        {% endif %}
     </div>
 {% else %}
     <p class="empty">Песен пока нет.</p>
