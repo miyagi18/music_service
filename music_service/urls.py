@@ -1,5 +1,6 @@
 """Корневая конфигурация URL проекта Music Service."""
 from django.contrib import admin
+from django.conf import settings
 from django.urls import include, path
 
 urlpatterns = [
@@ -10,3 +11,9 @@ urlpatterns = [
     path("songs/", include("songs.urls")),
     path("requests/", include("user_requests.urls")),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        path("__debug__/", include(debug_toolbar.urls)),
+    ]

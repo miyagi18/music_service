@@ -22,7 +22,7 @@
 {% if artists %}
     <div class="track-list">
         {% for artist in artists %}
-        <a href="{% url 'artists:detail' artist.id %}" class="track">
+        <a href="{{ artist.get_absolute_url }}" class="track">
             <div class="track__index">{{ forloop.counter }}</div>
             <div class="track__cover">{{ artist.name|slice:":1" }}</div>
             <div class="track__main">
